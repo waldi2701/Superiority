@@ -34,6 +34,7 @@ def bhop() -> None:
     pm = get_pm()
     client = get_client()
 
+
     # main loop
     i = 0
     while True:
@@ -68,9 +69,9 @@ def bhop() -> None:
             if pm.read_int(local_player + m_fFlags) & 1 << 0:
                 
                 # perform bunny hop
-                pm.write_int(client + dwForceJump, 6)
+                pm.write_int(client + dwForceJump, 5)
                 time.sleep(0.01)
-                pm.write_int(client + m_fFlags, 4)
+                pm.write_int(client + dwForceJump, 4)
         except pymem.exception.MemoryReadError:
             continue
 
